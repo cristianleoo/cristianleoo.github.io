@@ -281,8 +281,8 @@ a:hover, a:active, a:focus {
 
 .main-home {
   background: url('../images/home-bg.jpg') no-repeat;
+  background-size: cover;
   height: 100vh;
-  object-fit: contain;
 }
 
 .main-about {
