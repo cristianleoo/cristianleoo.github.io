@@ -85,6 +85,41 @@
                <div class="col-md-offset-1 col-md-10 col-sm-12">
                     <div class="blog-post-thumb">
                          <div class="blog-post-image">
+                              <a href="tesla_predictions.html" target="_blank">
+                                   <img src="images/tesla.png" class="img-responsive" alt="Blog Image">
+                              </a>
+                         </div>
+                         <div class="blog-post-title">
+                              <h3><a href="tesla_predictions.html">Predicting Tesla Stock from Elon Musk's tweets</a></h3>
+                         </div>
+                         <div class="blog-post-format">
+                              <span><a href="tesla_predictions.html"><img src="images/r.png" class="img-responsive img-circle"> R Code</a></span>
+                              <span><i class="fa fa-date"></i> April 30, 2023</span>
+                              
+                         </div>
+                         <div class="blog-post-des">
+                              <p>In this data science project I predicted the the fluctuation of Tesla Stock from Elon Musk Tweets. <br> 
+                                   The goal of this project was to predict if the stock would decrease or increase based on the previous day's Elon Musk tweets. <br>
+
+                                   To achieve this, I used first data preprocessing on the tweets column, which involved removing URLs, stripping whitespaces, removing non alpha characters, stemming words and creating a TF-IDF matrix. <br>
+
+                                   Secondly, I performed exploratory analysis to visualize correlation between words and stock fluctuation, the top words used in the tweets, etc. <br>
+
+                                   Then, I used feature engineering. Firstly I right merged the tesla stock dataset imported using Yahoo Finance API, then I grouped by day concatenating all the tweets that happened in the same day.
+                                   After that, I was able to extract some other useful information such as the number of tweets per day, the average length of the tweets, number of emoji used and so on. <br>
+                                   
+                                   After that, I performed sentiment analysis using vader, which provided useful sentiment scores. <br>
+                                   
+                                   Finally, I performed data modeling. For this step I used both a LSTM model on the stock data, and a neural network on the NLP data. Then, I combined the outputs with a second neural network to have one final layer with one output.
+                                   </p>
+                              <a href="tesla_predictions.html" class="btn btn-default">Continue Reading</a>
+                         </div>
+                    </div>
+               </div>
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <div class="blog-post-thumb">
+                         <div class="blog-post-image">
                               <a href="Appointments_Prediction.html" target="_blank">
                                    <img src="images/LSTM_TS.png" class="img-responsive" alt="Blog Image">
                               </a>
