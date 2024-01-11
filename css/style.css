@@ -334,6 +334,20 @@ a:hover, a:active, a:focus {
   color: #ffffff;
 }
 
+.social-icon {
+  color: rgba(255, 255, 255, 0.6); /* white with 60% opacity */
+  margin-right: 60px !important;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.social-icon:last-child {
+  margin-right: 0;
+}
+
+.social-icon:hover {
+  color: white; /* full white on hover */
+  transform: scale(1.3); /* 40% larger on hover */
+}
 
 
 /*---------------------------------------
