@@ -6,6 +6,17 @@ import NeuralNetworkBackground from "@/components/NeuralNetworkBackground";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import WritingCarousel from "@/components/WritingCarousel";
 
+function weightedPick(options: { token: string; prob: string }[]) {
+  const weights = options.map((o) => parseFloat(o.prob));
+  const sum = weights.reduce((a, b) => a + b, 0);
+  let r = Math.random() * sum;
+  for (let i = 0; i < options.length; i++) {
+    r -= weights[i] ?? 0;
+    if (r <= 0) return options[i]!;
+  }
+  return options[options.length - 1]!;
+}
+
 const identitySteps = [
   {
     thought: "Analyzing professional trajectory... high-confidence role detected.",
@@ -35,6 +46,8 @@ const identitySteps = [
     ]
   }
 ];
+
+const SAMPLING_MS = 2200;
 
 export default function Home() {
   const [terminalText, setTerminalText] = useState('');
@@ -119,12 +132,15 @@ export default function Home() {
           setIsSampling(true);
           setCandidates(currentStepData.options);
           setTimeout(() => {
-            setIsSampling(false);
             const options = currentStepData.options;
-            const chosen = options[Math.floor(Math.random() * options.length)];
-            if (chosen && chosen.token) setGeneratedText(prev => prev + chosen.token);
-            setCurrentStep(prev => prev + 1);
-          }, 1000);
+            const chosen = weightedPick(options);
+            setIsSampling(false);
+            setTimeout(() => {
+              setCandidates([]);
+              if (chosen?.token) setGeneratedText((prev) => prev + chosen.token);
+              setCurrentStep((prev) => prev + 1);
+            }, 380);
+          }, SAMPLING_MS);
         }
       }, 20);
     };
@@ -146,11 +162,51 @@ export default function Home() {
           </div>
 
           <div className={`w-full flex flex-col items-center transition-all duration-1000 ${showIdentity ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <div className={`mb-8 h-6 font-mono text-[9px] md:text-[10px] transition-all duration-500 ${isThinking ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`mb-8 min-h-[1.5rem] font-mono text-[9px] md:text-[10px] transition-all duration-500 ${isThinking ? 'opacity-100' : 'opacity-0'}`}>
               <span className="text-zinc-400 dark:text-zinc-600 italic">
                 &lt;thought&gt; {thoughtText} &lt;/thought&gt;
               </span>
             </div>
+
+            {/* Logits: state was set during “sampling” but nothing rendered it until now */}
+            {candidates.length > 0 && (
+              <div
+                className={`mb-6 w-full max-w-md mx-auto transition-opacity duration-300 ease-out ${
+                  isSampling ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}
+                aria-hidden={!isSampling}
+              >
+                <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/90 dark:bg-zinc-900/80 px-4 py-3 text-left shadow-sm backdrop-blur-sm">
+                  <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-500 mb-2">
+                    Next-token logits
+                  </p>
+                  <ul className="space-y-2 font-mono text-[11px] md:text-xs">
+                    {candidates.map((c) => {
+                      const p = parseFloat(c.prob);
+                      const pct = Number.isFinite(p) ? p * 100 : 0;
+                      return (
+                        <li key={c.token} className="flex flex-col gap-0.5">
+                          <div className="flex justify-between gap-3 text-zinc-800 dark:text-zinc-200">
+                            <span className="truncate" title={c.token}>
+                              {c.token}
+                            </span>
+                            <span className="shrink-0 tabular-nums text-emerald-600 dark:text-emerald-400">
+                              p = {c.prob}
+                            </span>
+                          </div>
+                          <div className="h-1 w-full overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800">
+                            <div
+                              className="h-full rounded-full bg-emerald-500/80 dark:bg-emerald-400/70 transition-[width] duration-700 ease-out"
+                              style={{ width: `${pct}%` }}
+                            />
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+            )}
 
             <div className="text-center mb-12">
               <h1 className="text-2xl md:text-3xl font-medium tracking-tight text-zinc-900 dark:text-white leading-relaxed">
