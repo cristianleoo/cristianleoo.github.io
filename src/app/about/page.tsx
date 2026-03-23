@@ -19,7 +19,7 @@ export default function About() {
             System <span className="font-light italic text-zinc-400 dark:text-zinc-600">Context.</span>
           </h1>
           <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto font-medium italic">
-            "Bridging the gap between high-dimensional theoretical research and secure, scalable AI implementations."
+            &ldquo;Bridging the gap between high-dimensional theoretical research and secure, scalable AI implementations.&rdquo;
           </p>
         </div>
       </section>
@@ -42,8 +42,8 @@ export default function About() {
             <div>
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600 mb-6 border-b border-emerald-600/20 pb-2">Connect_Channels</h3>
               <div className="flex flex-col space-y-4">
-                <a href="https://www.linkedin.com/in/cristian-leo/" target="_blank" className="text-xs font-bold uppercase tracking-widest text-zinc-900 dark:text-zinc-100 hover:text-blue-600 transition-colors">LinkedIn &rarr;</a>
-                <a href="https://medium.com/@cristianleo120" target="_blank" className="text-xs font-bold uppercase tracking-widest text-zinc-900 dark:text-zinc-100 hover:text-emerald-600 transition-colors">Medium &rarr;</a>
+                <a href="https://www.linkedin.com/in/cristian-leo/" target="_blank" rel="noopener noreferrer" className="text-xs font-bold uppercase tracking-widest text-zinc-900 dark:text-zinc-100 hover:text-blue-600 transition-colors">LinkedIn &rarr;</a>
+                <a href="https://medium.com/@cristianleo120" target="_blank" rel="noopener noreferrer" className="text-xs font-bold uppercase tracking-widest text-zinc-900 dark:text-zinc-100 hover:text-emerald-600 transition-colors">Medium &rarr;</a>
                 <a href="mailto:cristianleo120@gmail.com" className="text-xs font-bold uppercase tracking-widest text-zinc-900 dark:text-zinc-100 hover:text-indigo-600 transition-colors">Email &rarr;</a>
               </div>
             </div>
@@ -54,11 +54,11 @@ export default function About() {
             <div className="prose prose-zinc dark:prose-invert max-w-none">
               <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white mb-8">The Journey</h2>
               <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 mb-8">
-                Currently a **Data Scientist at Amazon Web Services (AWS)**, I focus on engineering the intersection of AI and security. My work revolves around building agentic systems that can reason through complex threat landscapes and automating the "Shift-Left" security paradigm.
+                Currently a **Data Scientist at Amazon Web Services (AWS)**, I focus on engineering the intersection of AI and security. My work revolves around building agentic systems that can reason through complex threat landscapes and automating the &ldquo;Shift-Left&rdquo; security paradigm.
               </p>
               
               <div className="p-8 rounded-[2rem] bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 mb-12 italic text-zinc-500 dark:text-zinc-400">
-                "I believe that the next decade of software will be defined not by the code we write, but by the constraints we place on the models that write it for us."
+                &ldquo;I believe that the next decade of software will be defined not by the code we write, but by the constraints we place on the models that write it for us.&rdquo;
               </div>
 
               <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 mb-8">
@@ -66,7 +66,7 @@ export default function About() {
               </p>
 
               <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-                When I'm not architecting systems at AWS, I contribute to the open-source community through projects like **InfluencerPy** and **ThreatForest**, or share deep-dives into LLM interpretability on **Medium**.
+                When I&apos;m not architecting systems at AWS, I contribute to the open-source community through projects like **InfluencerPy** and **ThreatForest**, or share deep-dives into LLM interpretability on **Medium**.
               </p>
             </div>
 

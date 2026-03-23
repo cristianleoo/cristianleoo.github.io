@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
+import Image from 'next/image';
 
 interface BlogPost {
   title: string;
@@ -48,50 +49,33 @@ const blogPosts: BlogPost[] = [
   }
 ];
 
+const displayPosts = [...blogPosts, ...blogPosts];
+
 export default function WritingCarousel() {
-  const [offset, setOffset] = useState(0);
-  const requestRef = useRef<number>(null);
-  
-  const displayPosts = [...blogPosts, ...blogPosts, ...blogPosts];
-
-  const animate = () => {
-    setOffset((prev) => {
-      const next = prev + 0.4;
-      const threshold = blogPosts.length * 490;
-      return next > threshold ? 0 : next;
-    });
-    requestRef.current = requestAnimationFrame(animate);
-  };
-
-  useEffect(() => {
-    requestRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (requestRef.current) cancelAnimationFrame(requestRef.current);
-    };
-  }, []);
-
   return (
-    <div className="w-full overflow-hidden relative py-10">
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white dark:from-zinc-950 to-transparent z-10" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white dark:from-zinc-950 to-transparent z-10" />
+    <div className="group relative w-full py-10">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 hidden w-32 bg-gradient-to-r from-white dark:from-zinc-950 to-transparent md:block" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-32 bg-gradient-to-l from-white dark:from-zinc-950 to-transparent md:block" />
 
-      <div 
-        className="flex space-x-10 will-change-transform"
-        style={{ transform: `translateX(-${offset}px)` }}
-      >
-        {displayPosts.map((post, i) => (
-          <a 
-            key={i} 
-            href={post.link} 
-            target="_blank" 
+      <div className="overflow-x-auto px-6 md:overflow-hidden md:px-0">
+        <div className="flex w-max gap-6 motion-reduce:animate-none md:gap-10 md:animate-[marquee_42s_linear_infinite] md:group-hover:[animation-play-state:paused]">
+          {displayPosts.map((post, i) => (
+          <a
+            key={`${post.title}-${i}`}
+            href={post.link}
+            target="_blank"
             rel="noopener noreferrer"
-            className="flex-shrink-0 w-[450px] group transition-all"
+            className="group w-[88vw] max-w-[450px] flex-shrink-0 transition-all"
           >
             <div className="relative aspect-[16/9] w-full rounded-[2.5rem] overflow-hidden mb-6 border border-zinc-200 dark:border-zinc-800 shadow-xl">
-              <img 
+              <Image
                 src={post.image} 
                 alt={post.title} 
-                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:grayscale-[0.5]" 
+                fill
+                sizes="(max-width: 768px) 88vw, 450px"
+                className="object-cover transition-all duration-700 group-hover:scale-105 group-hover:grayscale-[0.5]" 
+                loading="lazy"
+                unoptimized
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute top-6 left-6 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[8px] font-black uppercase tracking-[0.2em] text-white opacity-0 group-hover:opacity-100 transition-opacity">
@@ -113,7 +97,8 @@ export default function WritingCarousel() {
               </p>
             </div>
           </a>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

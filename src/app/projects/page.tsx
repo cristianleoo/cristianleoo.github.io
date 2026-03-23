@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export const metadata = {
   title: 'Projects | Cristian Leo',
   description: 'Open-source Data Science and AI projects by Cristian Leo',

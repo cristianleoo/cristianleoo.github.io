@@ -52,7 +52,7 @@ export default function Blog() {
             The Latent Space
           </h1>
           <p className="text-xl text-zinc-500 dark:text-zinc-400 font-medium max-w-2xl leading-relaxed italic">
-            "A technical record of deep dives into high-dimensional intelligence, interpretability, and AI security."
+            &ldquo;A technical record of deep dives into high-dimensional intelligence, interpretability, and AI security.&rdquo;
           </p>
         </div>
 
@@ -66,10 +66,13 @@ export default function Blog() {
               className="group flex flex-col h-full bg-white dark:bg-zinc-900/40 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500/50 transition-all hover:shadow-[0_0_50px_rgba(16,185,129,0.1)]"
             >
               <div className="relative aspect-[16/9] w-full overflow-hidden bg-zinc-100">
-                <img 
+                <Image
                   src={post.image} 
                   alt={post.title} 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" 
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>

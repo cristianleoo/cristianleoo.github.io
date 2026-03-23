@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useRef, useMemo } from 'react';
+import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, Float, Center, QuadraticBezierLine, Line } from '@react-three/drei';
+import type { QuadraticBezierLineRef } from '@react-three/drei';
 import * as THREE from 'three';
 
 function VectorSpace() {
@@ -36,12 +37,15 @@ function VectorSpace() {
 }
 
 function IdentityVector({ active }: { active: boolean }) {
-  const lineRef = useRef<any>(null);
+  const lineRef = useRef<QuadraticBezierLineRef | null>(null);
 
   useFrame(() => {
     if (!lineRef.current) return;
     const time = performance.now() * 0.001;
-    lineRef.current.material.opacity = active ? (0.8 + Math.sin(time * 3) * 0.2) : 0;
+    const material = lineRef.current.material;
+    if (!Array.isArray(material) && material instanceof THREE.Material) {
+      material.opacity = active ? (0.8 + Math.sin(time * 3) * 0.2) : 0;
+    }
   });
 
   return (

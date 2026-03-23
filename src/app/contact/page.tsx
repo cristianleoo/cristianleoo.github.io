@@ -21,7 +21,7 @@ export default function Contact() {
           </h1>
           
           <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto mb-16 font-medium italic">
-            "Establishing a direct communication channel for collaborations in AI, Security, and Research."
+            &ldquo;Establishing a direct communication channel for collaborations in AI, Security, and Research.&rdquo;
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-2xl">

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
 interface Project {
   title: string;
@@ -48,47 +48,24 @@ const projects: Project[] = [
   }
 ];
 
+const displayProjects = [...projects, ...projects];
+
 export default function ProjectCarousel() {
-  const [offset, setOffset] = useState(0);
-  const requestRef = useRef<number>(null);
-  
-  // Create a tripled list for seamless infinite loop
-  const displayProjects = [...projects, ...projects, ...projects];
-
-  const animate = () => {
-    setOffset((prev) => {
-      const next = prev + 0.5; // Speed of movement
-      // Reset when we've scrolled past one full set
-      const threshold = projects.length * 440; // 400px width + 40px gap
-      return next > threshold ? 0 : next;
-    });
-    requestRef.current = requestAnimationFrame(animate);
-  };
-
-  useEffect(() => {
-    requestRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (requestRef.current) cancelAnimationFrame(requestRef.current);
-    };
-  }, []);
-
   return (
-    <div className="w-full overflow-hidden relative py-10 group">
+    <div className="group relative w-full py-10">
       {/* Gradient Fades for depth */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white dark:from-zinc-950 to-transparent z-10" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white dark:from-zinc-950 to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 hidden w-32 bg-gradient-to-r from-white dark:from-zinc-950 to-transparent md:block" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-32 bg-gradient-to-l from-white dark:from-zinc-950 to-transparent md:block" />
 
-      <div 
-        className="flex space-x-10 will-change-transform"
-        style={{ transform: `translateX(-${offset}px)` }}
-      >
-        {displayProjects.map((project, i) => (
-          <a 
-            key={i} 
-            href={project.link} 
-            target="_blank" 
+      <div className="overflow-x-auto px-6 md:overflow-hidden md:px-0">
+        <div className="flex w-max gap-6 motion-reduce:animate-none md:gap-10 md:animate-[marquee_36s_linear_infinite] md:group-hover:[animation-play-state:paused]">
+          {displayProjects.map((project, i) => (
+          <a
+            key={`${project.title}-${i}`}
+            href={project.link}
+            target="_blank"
             rel="noopener noreferrer"
-            className="flex-shrink-0 w-[400px] h-[280px] p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] transition-all flex flex-col justify-between group/card relative overflow-hidden"
+            className="group/card relative flex h-[280px] w-[85vw] max-w-[400px] flex-shrink-0 flex-col justify-between overflow-hidden rounded-3xl border border-zinc-200 bg-white p-8 transition-all hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] dark:border-zinc-800 dark:bg-zinc-900/40"
           >
             {/* Tech Decoration */}
             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity" />
@@ -129,7 +106,8 @@ export default function ProjectCarousel() {
               </div>
             </div>
           </a>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
