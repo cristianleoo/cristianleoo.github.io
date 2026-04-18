@@ -15,6 +15,9 @@ export default function Navbar() {
               <Link href="/" className="text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors">
                 Home
               </Link>
+              <Link href="/#research" className="text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                Research
+              </Link>
               <Link href="/about" className="text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors">
                 System Context
               </Link>

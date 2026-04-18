@@ -1,6 +1,7 @@
 import HomeHero from "@/components/HomeHero";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import WritingCarousel from "@/components/WritingCarousel";
+import ResearchCarousel from "@/components/ResearchCarousel";
 
 export default function Home() {
   return (
@@ -28,6 +29,19 @@ export default function Home() {
         </div>
 
         <WritingCarousel />
+      </section>
+
+      <section id="research" className="w-full border-b border-zinc-50 py-32 dark:border-zinc-900">
+        <div className="mx-auto mb-16 max-w-6xl px-6 lg:px-8">
+          <h2 className="text-3xl font-bold uppercase tracking-tighter text-zinc-900 dark:text-white">
+            Primary Research
+          </h2>
+          <p className="mt-1 text-sm font-medium italic tracking-tight text-zinc-500">
+            Peer-reviewed publications and technical pre-prints.
+          </p>
+        </div>
+
+        <ResearchCarousel />
       </section>
 
       <section className="w-full bg-zinc-50/30 py-32 dark:bg-zinc-900/10">
