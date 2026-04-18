@@ -37,7 +37,7 @@ const researchPapers: ResearchPaper[] = [
     venue: "SSRN (6486258)",
     abstract: "Mechanistic probing of ModernBERT and DeBERTa-v3 to identify how factual associations and concepts are represented in geometric latent spaces.",
     link: "https://ssrn.com/abstract=6486258",
-    image: "/images/research/geometric_placeholder.png",
+    image: "placeholder_geometric",
     bibtex: `@article{leo2026geometric,
   title={Geometric Concept Spaces in Small Encoders: A Comparative Mechanistic Probing of ModernBERT and DeBERTa-v3},
   author={Leo, Cristian},
@@ -53,7 +53,7 @@ const researchPapers: ResearchPaper[] = [
     venue: "SSRN (6508042)",
     abstract: "Comprehensive survey of architectural variations in attention mechanisms specifically for encoder-only transformers, focusing on efficiency and security applications.",
     link: "https://ssrn.com/abstract=6508042",
-    image: "/images/research/attention_placeholder.png",
+    image: "placeholder_attention",
     bibtex: `@article{leo2026survey,
   title={Survey of Attention Mechanisms in Encoder-Only Language Models},
   author={Leo, Cristian},
@@ -85,20 +85,52 @@ export default function ResearchCarousel() {
               key={`${paper.title}-${i}`}
               className="flex w-[88vw] max-w-[500px] flex-shrink-0 flex-col rounded-[2.5rem] border border-zinc-200 bg-white p-8 shadow-xl transition-all dark:border-zinc-800 dark:bg-zinc-900/50"
             >
-              <div className="relative mb-8 aspect-[1/1.3] w-full overflow-hidden rounded-2xl border border-zinc-100 bg-white dark:border-zinc-800">
+              <div className="relative mb-8 aspect-[1/1.3] w-full overflow-hidden rounded-2xl border border-zinc-200 bg-white dark:border-zinc-700 shadow-inner">
                 {paper.image.includes('placeholder') ? (
-                  <div className="flex h-full w-full flex-col items-center justify-center bg-zinc-50 dark:bg-zinc-800/20 p-12 text-center">
-                    <div className="mb-6 flex w-full flex-col space-y-2 opacity-20">
-                        <div className="h-1 w-full bg-zinc-400" />
-                        <div className="h-1 w-3/4 bg-zinc-400" />
-                        <div className="h-1 w-full bg-zinc-400" />
-                        <div className="h-1 w-1/2 bg-zinc-400" />
+                  <div className="flex h-full w-full flex-col p-8 text-left bg-white text-zinc-900 font-serif overflow-hidden select-none">
+                    {/* Fake Header */}
+                    <div className="mb-6 flex justify-between items-center opacity-30 border-b border-zinc-200 pb-2">
+                        <span className="text-[6px] font-sans font-bold uppercase tracking-widest">{paper.venue}</span>
+                        <span className="text-[6px] font-sans font-bold uppercase tracking-widest">{paper.year}</span>
                     </div>
-                    <span className="text-[8px] font-black uppercase tracking-[0.3em] text-zinc-400 mb-2">Paper_Draft</span>
-                    <h4 className="text-[11px] font-bold text-zinc-500 dark:text-zinc-400 line-clamp-3 leading-relaxed px-4">{paper.title}</h4>
-                    <div className="mt-8 flex w-full flex-col space-y-2 opacity-10">
-                        <div className="h-1 w-full bg-zinc-400" />
-                        <div className="h-1 w-full bg-zinc-400" />
+
+                    {/* Fake Title */}
+                    <h4 className="text-[14px] font-bold leading-tight mb-3 text-zinc-800 line-clamp-3">
+                        {paper.title}
+                    </h4>
+
+                    {/* Fake Authors */}
+                    <div className="text-[8px] italic text-zinc-500 mb-6">
+                        {paper.authors}
+                    </div>
+
+                    {/* Fake Abstract Section */}
+                    <div className="mb-4">
+                        <div className="text-[7px] font-bold uppercase tracking-tighter mb-1">Abstract</div>
+                        <p className="text-[7px] leading-relaxed text-zinc-400 line-clamp-[12]">
+                            {paper.abstract} This research addresses a critical gap in the field of large-scale language model evaluation and security forensics. By developing a novel methodology for probing geometric concept spaces, we establish a new baseline for autonomous investigative depth. Our findings suggest that existing benchmarks significantly underrepresent the complexity of forensic reasoning required in cloud-native environments. We introduce the Once Upon A Threat (OUAT) framework as a standardized telemetry replay system.
+                        </p>
+                    </div>
+
+                    {/* Fake Columns/Columns Mockup */}
+                    <div className="mt-auto grid grid-cols-2 gap-4 opacity-[0.05]">
+                        <div className="space-y-1">
+                            <div className="h-1 w-full bg-zinc-900" />
+                            <div className="h-1 w-full bg-zinc-900" />
+                            <div className="h-1 w-3/4 bg-zinc-900" />
+                            <div className="h-1 w-full bg-zinc-900" />
+                        </div>
+                        <div className="space-y-1">
+                            <div className="h-1 w-full bg-zinc-900" />
+                            <div className="h-1 w-5/6 bg-zinc-900" />
+                            <div className="h-1 w-full bg-zinc-900" />
+                            <div className="h-1 w-2/3 bg-zinc-900" />
+                        </div>
+                    </div>
+                    
+                    {/* Watermark */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-[35deg] pointer-events-none">
+                        <span className="text-[40px] font-black text-zinc-100 opacity-20 uppercase tracking-[0.5em]">SSRN_PREVIEW</span>
                     </div>
                   </div>
                 ) : (
@@ -110,8 +142,6 @@ export default function ResearchCarousel() {
                     unoptimized
                   />
                 )}
-                {/* Subtle overlay to prevent harsh white in dark mode */}
-                <div className="absolute inset-0 bg-black/[0.02] dark:bg-white/[0.02] pointer-events-none" />
               </div>
 
               <div className="mb-4 flex items-center justify-between">
