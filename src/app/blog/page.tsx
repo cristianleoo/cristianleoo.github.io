@@ -7,6 +7,20 @@ export const metadata = {
 
 const blogPosts = [
   {
+    title: "How Encoder Transformers Actually Understand Language",
+    subtitle: "The evolution of the attention mechanism in encoder-only models, from BERT to ModernBERT.",
+    date: "Apr 27, 2026",
+    link: "https://pub.towardsai.net/how-encoder-transformers-actually-understand-language-2de2142847a8",
+    image: "https://miro.medium.com/v2/resize:fit:1400/1*YUkEOCf7EccKvOQp8UVqHA.png"
+  },
+  {
+    title: "ModernBERT and the Topological Collapse Problem",
+    subtitle: "Why older models like DeBERTa-v3 are still quietly winning the precision war.",
+    date: "Apr 21, 2026",
+    link: "https://medium.com/@cristianleo120/modernbert-and-the-topological-collapse-problem-8c4e05695554",
+    image: "https://miro.medium.com/v2/resize:fit:1400/1*LM5RLvDKycasP7mhS8WGQA.png"
+  },
+  {
     title: "I Dissected Two Language Models to Find Out Where They Hide Their Cybersecurity Knowledge",
     subtitle: "A causal-tracing experiment comparing SecureBERT 2.0 and ModernBERT to locate factual associations.",
     date: "Feb 11, 2026",

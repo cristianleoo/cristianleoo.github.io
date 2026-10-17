@@ -12,38 +12,45 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: 'ThreatForest',
+    description: 'Agentic threat modeling that turns a code repository into MITRE ATT&CK-mapped attack trees with mitigations.',
+    link: 'https://github.com/aws-samples/sample-agentic-attack-tree-generator',
+    stars: 80,
+    tags: ['Security', 'Agents']
+  },
+  {
     title: 'models-from-scratch-python',
     description: 'Recreating popular machine learning models from scratch using only Python and NumPy.',
     link: 'https://github.com/cristianleoo/models-from-scratch-python',
-    stars: 124,
+    stars: 130,
     tags: ['ML', 'Python']
   },
   {
     title: 'rag-knowledge-graph',
     description: 'Implementation of Retrieval-Augmented Generation (RAG) using Knowledge Graphs.',
     link: 'https://github.com/cristianleoo/rag-knowledge-graph',
-    stars: 35,
+    stars: 40,
     tags: ['RAG', 'LLMs']
   },
   {
     title: 'InfluencerPy',
     description: 'A specialized CLI application designed to automate social media management and interaction tasks.',
     link: 'https://github.com/cristianleoo/InfluencerPy',
-    stars: 11,
+    stars: 19,
     tags: ['CLI', 'Automation']
   },
   {
     title: 'montecarlo-portfolio-management',
     description: 'Quantitative finance tool for risk analysis using Monte Carlo simulations.',
     link: 'https://github.com/cristianleoo/montecarlo-portfolio-management',
-    stars: 21,
+    stars: 25,
     tags: ['Finance', 'Simulation']
   },
   {
     title: 'Reinforcement-Learning',
     description: 'Deep dives into RL algorithms and gymnasium environments.',
     link: 'https://github.com/cristianleoo/Reinforcement-Learning',
-    stars: 9,
+    stars: 10,
     tags: ['RL', 'Q-Learning']
   }
 ];
@@ -58,7 +65,7 @@ export default function ProjectCarousel() {
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-32 bg-gradient-to-l from-white dark:from-zinc-950 to-transparent md:block" />
 
       <div className="overflow-x-auto px-6 md:overflow-hidden md:px-0">
-        <div className="flex w-max gap-6 motion-reduce:animate-none md:gap-10 md:animate-[marquee_36s_linear_infinite] md:group-hover:[animation-play-state:paused]">
+        <div className="flex w-max gap-6 motion-reduce:animate-none md:gap-10 md:animate-[marquee_43s_linear_infinite] md:group-hover:[animation-play-state:paused]">
           {displayProjects.map((project, i) => (
           <a
             key={`${project.title}-${i}`}

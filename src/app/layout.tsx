@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Cristian Leo | Portfolio",
-  description: "Cristian Leo's personal portfolio and data science projects.",
+  description: "Cristian Leo is Co-Founder & CTO of Armorer Labs. Research, writing, and open-source projects on AI security, AI agents, and model internals.",
 };
 
 export default function RootLayout({
