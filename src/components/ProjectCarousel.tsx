@@ -15,35 +15,35 @@ const projects: Project[] = [
     title: 'models-from-scratch-python',
     description: 'Recreating popular machine learning models from scratch using only Python and NumPy.',
     link: 'https://github.com/cristianleoo/models-from-scratch-python',
-    stars: 124,
+    stars: 130,
     tags: ['ML', 'Python']
   },
   {
     title: 'rag-knowledge-graph',
     description: 'Implementation of Retrieval-Augmented Generation (RAG) using Knowledge Graphs.',
     link: 'https://github.com/cristianleoo/rag-knowledge-graph',
-    stars: 35,
+    stars: 40,
     tags: ['RAG', 'LLMs']
   },
   {
     title: 'InfluencerPy',
     description: 'A specialized CLI application designed to automate social media management and interaction tasks.',
     link: 'https://github.com/cristianleoo/InfluencerPy',
-    stars: 11,
+    stars: 19,
     tags: ['CLI', 'Automation']
   },
   {
     title: 'montecarlo-portfolio-management',
     description: 'Quantitative finance tool for risk analysis using Monte Carlo simulations.',
     link: 'https://github.com/cristianleoo/montecarlo-portfolio-management',
-    stars: 21,
+    stars: 25,
     tags: ['Finance', 'Simulation']
   },
   {
     title: 'Reinforcement-Learning',
     description: 'Deep dives into RL algorithms and gymnasium environments.',
     link: 'https://github.com/cristianleoo/Reinforcement-Learning',
-    stars: 9,
+    stars: 10,
     tags: ['RL', 'Q-Learning']
   }
 ];

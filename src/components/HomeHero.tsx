@@ -26,34 +26,34 @@ const identitySteps: IdentityStep[] = [
     thought: "Analyzing professional trajectory... high-confidence role detected.",
     prefix: "is a ",
     options: [
-      { token: "Data Scientist", prob: "0.84" },
-      { token: "Research Engineer", prob: "0.12" },
-      { token: "ML Architect", prob: "0.04" }
+      { token: "Co-Founder & CTO", prob: "0.86" },
+      { token: "AI Security Researcher", prob: "0.10" },
+      { token: "Research Engineer", prob: "0.04" }
     ]
   },
   {
-    thought: "Cross-referencing current affiliation... AWS cluster identified.",
+    thought: "Cross-referencing current affiliation... Armorer Labs (YC F26) identified.",
     prefix: " @ ",
     options: [
-      { token: "AWS", prob: "0.91" },
-      { token: "Amazon", prob: "0.07" },
-      { token: "Cloud AI", prob: "0.02" }
+      { token: "Armorer Labs", prob: "0.92" },
+      { token: "Armorer", prob: "0.07" },
+      { token: "a YC startup", prob: "0.01" }
     ]
   },
   {
     thought: "Evaluating core competencies... filtering for high-impact domains.",
     prefix: " specializing in ",
     options: [
-      { token: "Large Language Model training", prob: "0.55" },
-      { token: "cybersecurity", prob: "0.35" },
-      { token: "agentic system security", prob: "0.10" }
+      { token: "security for AI agents", prob: "0.58" },
+      { token: "AI security research", prob: "0.30" },
+      { token: "model internals", prob: "0.12" }
     ]
   }
 ];
 
 const SAMPLING_MS = 2200;
 const TERMINAL_MESSAGES = [
-  "> [SYSTEM]: Loading Identity Weights [cristian_leo_v4.bin]",
+  "> [SYSTEM]: Loading Identity Weights [cristian_leo_v5.bin]",
   "> [SYSTEM]: Initializing Multi-Head Attention...",
   "> [SYSTEM]: Computing Softmax(QK^T / sqrt(d_k))V...",
   "> [SYSTEM]: Identity successfully reified."

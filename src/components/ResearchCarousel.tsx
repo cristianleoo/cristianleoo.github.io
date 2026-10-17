@@ -16,7 +16,22 @@ interface ResearchPaper {
 
 const researchPapers: ResearchPaper[] = [
   {
-    title: "SIR-BENCH: Evaluating Investigation Depth in Security Incident Response Agents",
+    title: "ThreatForest: Multi-Agent Attack Tree Generation with Pluggable TTP Framework Mapping",
+    authors: "Cristian Leo, Anton Dykyi, Danny Cortegaca, Daniel Begimher, Prakash Jha",
+    year: "2026",
+    venue: "arXiv:2607.27528",
+    abstract: "A multi-agent system that turns source code repositories into attack trees mapped to MITRE ATT&CK, CAPEC, and cloud threat matrices, with evidence-based mitigations. Presented at Black Hat USA 2026.",
+    link: "https://arxiv.org/abs/2607.27528",
+    image: "/images/research/threatforest.jpg",
+    bibtex: `@article{leo2026threatforest,
+  title={ThreatForest: Multi-Agent Attack Tree Generation with Pluggable TTP Framework Mapping},
+  author={Leo, Cristian and Dykyi, Anton and Cortegaca, Danny and Begimher, Daniel and Jha, Prakash},
+  journal={arXiv preprint arXiv:2607.27528},
+  year={2026}
+}`
+  },
+  {
+    title: "SIR-Bench: Evaluating Investigation Depth in Security Incident Response Agents",
     authors: "Daniel Begimher, Cristian Leo, Jack Huang, Pat Gaw, Bonan Zheng",
     year: "2026",
     venue: "arXiv:2604.12040",
@@ -24,7 +39,7 @@ const researchPapers: ResearchPaper[] = [
     link: "https://arxiv.org/abs/2604.12040",
     image: "/images/research/sirbench.jpg",
     bibtex: `@article{begimher2026sirbench,
-  title={SIR-BENCH: Evaluating Investigation Depth in Security Incident Response Agents},
+  title={SIR-Bench: Evaluating Investigation Depth in Security Incident Response Agents},
   author={Begimher, Daniel and Leo, Cristian and Huang, Jack and Gaw, Pat and Zheng, Bonan},
   journal={arXiv preprint arXiv:2604.12040},
   year={2026}
@@ -79,7 +94,7 @@ export default function ResearchCarousel() {
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-32 bg-gradient-to-l from-white dark:from-zinc-950 to-transparent md:block" />
 
       <div className="overflow-x-auto px-6 md:overflow-hidden md:px-0">
-        <div className="flex w-max gap-6 motion-reduce:animate-none md:gap-10 md:animate-[marquee_45s_linear_infinite] md:group-hover:[animation-play-state:paused]">
+        <div className="flex w-max gap-6 motion-reduce:animate-none md:gap-10 md:animate-[marquee_60s_linear_infinite] md:group-hover:[animation-play-state:paused]">
           {[...researchPapers, ...researchPapers].map((paper, i) => (
             <div
               key={`${paper.title}-${i}`}

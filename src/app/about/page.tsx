@@ -54,7 +54,7 @@ export default function About() {
             <div className="prose prose-zinc dark:prose-invert max-w-none">
               <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white mb-8">The Journey</h2>
               <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 mb-8">
-                Currently a **Data Scientist at Amazon Web Services (AWS)**, I focus on engineering the intersection of AI and security. My work revolves around building agentic systems that can reason through complex threat landscapes and automating the &ldquo;Shift-Left&rdquo; security paradigm.
+                I&apos;m the <strong className="text-zinc-900 dark:text-zinc-100">Co-Founder &amp; CTO of Armorer Labs</strong> (YC F26), where we build continuous security verification for AI agents. I lead our AI research, evaluation, and engineering. Before Armorer, I led AI security science at <strong className="text-zinc-900 dark:text-zinc-100">Amazon Web Services (AWS)</strong>, building and evaluating AI systems for security.
               </p>
               
               <div className="p-8 rounded-[2rem] bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 mb-12 italic text-zinc-500 dark:text-zinc-400">
@@ -62,11 +62,11 @@ export default function About() {
               </div>
 
               <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 mb-8">
-                My academic foundation was built at **Columbia University**, where I pursued an M.S. in Applied Analytics (GPA 4.1/4.0), and **Università Bocconi**, where I earned my B.S. in Economics and Management. This dual background allows me to communicate technical nuances to stakeholders while maintaining the mathematical rigor required for state-of-the-art AI development.
+                My academic foundation was built at <strong className="text-zinc-900 dark:text-zinc-100">Columbia University</strong>, where I completed an M.S. in Applied Analytics (GPA 4.1/4.0), and <strong className="text-zinc-900 dark:text-zinc-100">Università Bocconi</strong>, where I earned my B.S. in Economics and Management. This dual background allows me to communicate technical nuances to stakeholders while maintaining the mathematical rigor required for state-of-the-art AI development.
               </p>
 
               <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-                When I&apos;m not architecting systems at AWS, I contribute to the open-source community through projects like **InfluencerPy** and **ThreatForest**, or share deep-dives into LLM interpretability on **Medium**.
+                My research focuses on AI security and model internals. I&apos;m the lead author of <strong className="text-zinc-900 dark:text-zinc-100">ThreatForest</strong>, an open-source agent that turns source code into attack trees (presented at Black Hat USA 2026), and a co-author of <strong className="text-zinc-900 dark:text-zinc-100">SIR-Bench</strong>, a benchmark for evaluating AI security investigations. I also build open-source projects like <strong className="text-zinc-900 dark:text-zinc-100">InfluencerPy</strong> and share deep dives into LLM interpretability on <strong className="text-zinc-900 dark:text-zinc-100">Medium</strong>.
               </p>
             </div>
 
