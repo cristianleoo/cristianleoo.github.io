@@ -44,14 +44,40 @@ const identitySteps: IdentityStep[] = [
     thought: "Evaluating core competencies... filtering for high-impact domains.",
     prefix: " specializing in ",
     options: [
-      { token: "security for AI agents", prob: "0.58" },
-      { token: "AI security research", prob: "0.30" },
-      { token: "model internals", prob: "0.12" }
+      { token: "continuous security verification for AI agents", prob: "0.81" },
+      { token: "AI agent security", prob: "0.14" },
+      { token: "AI security", prob: "0.05" }
     ]
   }
 ];
 
-const SAMPLING_MS = 2200;
+const ARMORER_URL = "https://armorerlabs.com";
+
+function renderGeneratedText(text: string) {
+  return text.split(/(Armorer Labs|Armorer)/).map((part, i) =>
+    i % 2 === 1 ? (
+      <a
+        key={i}
+        href={ARMORER_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-zinc-600 underline decoration-zinc-300 underline-offset-4 transition-colors hover:text-blue-600 dark:text-zinc-300 dark:decoration-zinc-700 dark:hover:text-blue-400"
+      >
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+}
+
+const TERMINAL_CHAR_MS = 5;
+const IDENTITY_DELAY_MS = 150;
+const THOUGHT_CHAR_MS = 5;
+const THOUGHT_PAUSE_MS = 120;
+const PREFIX_CHAR_MS = 10;
+const SAMPLING_MS = 900;
+const TOKEN_COMMIT_MS = 300;
 const TERMINAL_MESSAGES = [
   "> [SYSTEM]: Loading Identity Weights [cristian_leo_v5.bin]",
   "> [SYSTEM]: Initializing Multi-Head Attention...",
@@ -93,11 +119,11 @@ export default function HomeHero() {
           if (terminalMsgIdx.current === TERMINAL_MESSAGES.length) {
             clearInterval(typeTerminal);
             setTerminalComplete(true);
-            setTimeout(() => setShowIdentity(true), 500);
+            setTimeout(() => setShowIdentity(true), IDENTITY_DELAY_MS);
           }
         }
       }
-    }, 20);
+    }, TERMINAL_CHAR_MS);
 
     return () => clearInterval(typeTerminal);
   }, []);
@@ -123,9 +149,9 @@ export default function HomeHero() {
         setTimeout(() => {
           setIsThinking(false);
           startPrefixTyping(step);
-        }, 400);
+        }, THOUGHT_PAUSE_MS);
       }
-    }, 15);
+    }, THOUGHT_CHAR_MS);
 
     const startPrefixTyping = (currentStepData: IdentityStep) => {
       prefixCharIdx.current = 0;
@@ -150,10 +176,10 @@ export default function HomeHero() {
                 setGeneratedText((prev) => prev + chosen.token);
               }
               setCurrentStep((prev) => prev + 1);
-            }, 380);
+            }, TOKEN_COMMIT_MS);
           }, SAMPLING_MS);
         }
-      }, 20);
+      }, PREFIX_CHAR_MS);
     };
 
     return () => clearInterval(thoughtInterval);
@@ -196,7 +222,7 @@ export default function HomeHero() {
                     return (
                       <li key={c.token} className="flex flex-col gap-0.5">
                         <div className="flex justify-between gap-3 text-zinc-800 dark:text-zinc-200">
-                          <span className="truncate" title={c.token}>
+                          <span className="min-w-0" title={c.token}>
                             {c.token}
                           </span>
                           <span className="shrink-0 tabular-nums text-emerald-600 dark:text-emerald-400">
@@ -220,7 +246,7 @@ export default function HomeHero() {
           <div className="mb-12 text-center">
             <h1 className="text-2xl font-medium leading-relaxed tracking-tight text-zinc-900 dark:text-white md:text-3xl">
               <span className="font-bold tracking-tighter text-zinc-900 dark:text-white">Cristian Leo</span>{' '}
-              <span className="font-serif italic text-zinc-400 dark:text-zinc-500">{generatedText}</span>
+              <span className="font-serif italic text-zinc-400 dark:text-zinc-500">{renderGeneratedText(generatedText)}</span>
               <span className={`ml-2 inline-block h-6 w-1 align-middle bg-blue-600 ${isSampling ? 'animate-bounce' : 'animate-pulse'}`} />
             </h1>
           </div>

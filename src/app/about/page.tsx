@@ -54,7 +54,7 @@ export default function About() {
             <div className="prose prose-zinc dark:prose-invert max-w-none">
               <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white mb-8">The Journey</h2>
               <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 mb-8">
-                I&apos;m the <strong className="text-zinc-900 dark:text-zinc-100">Co-Founder &amp; CTO of Armorer Labs</strong> (YC F26), where we build continuous security verification for AI agents. I lead our AI research, evaluation, and engineering. Before Armorer, I led AI security science at <strong className="text-zinc-900 dark:text-zinc-100">Amazon Web Services (AWS)</strong>, building and evaluating AI systems for security.
+                I&apos;m the <strong className="text-zinc-900 dark:text-zinc-100">Co-Founder &amp; CTO of <a href="https://armorerlabs.com" target="_blank" rel="noopener noreferrer" className="underline decoration-zinc-300 underline-offset-4 transition-colors hover:text-blue-600 dark:decoration-zinc-700 dark:hover:text-blue-400">Armorer Labs</a></strong> (YC F26), where we build continuous security verification for AI agents. I lead our AI research, evaluation, and engineering. Before Armorer, I led AI security science at <strong className="text-zinc-900 dark:text-zinc-100">Amazon Web Services (AWS)</strong>, building and evaluating AI systems for security.
               </p>
               
               <div className="p-8 rounded-[2rem] bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 mb-12 italic text-zinc-500 dark:text-zinc-400">
