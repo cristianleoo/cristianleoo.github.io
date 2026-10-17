@@ -13,6 +13,14 @@ const githubProjects = [
     tags: ['Python', 'Machine Learning', 'NumPy'],
   },
   {
+    title: 'ThreatForest',
+    description: 'An agentic threat modeling platform that turns a code repository into attack trees mapped to MITRE ATT&CK, with actionable mitigations. Presented at Black Hat USA 2026.',
+    link: 'https://github.com/aws-samples/sample-agentic-attack-tree-generator',
+    stars: 80,
+    forks: 14,
+    tags: ['AI Security', 'Agents', 'Threat Modeling'],
+  },
+  {
     title: 'rag-knowledge-graph',
     description: 'Implementation of Retrieval-Augmented Generation (RAG) using Knowledge Graphs for enhanced context retrieval in LLMs.',
     link: 'https://github.com/cristianleoo/rag-knowledge-graph',

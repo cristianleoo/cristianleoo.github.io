@@ -37,7 +37,7 @@ export default function Home() {
             Primary Research
           </h2>
           <p className="mt-1 text-sm font-medium italic tracking-tight text-zinc-500">
-            Peer-reviewed publications and technical pre-prints.
+            Pre-prints on AI security and model internals.
           </p>
         </div>
 
